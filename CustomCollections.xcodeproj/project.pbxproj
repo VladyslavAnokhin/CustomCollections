@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		341870D7FE3C154628E10B05 /* Pods_CustomCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A86FCADEB08186712A6E331 /* Pods_CustomCollectionsTests.framework */; };
 		7C05B9765082A71993ED44CD /* Pods_CustomCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD7471D58F27500665D4D08 /* Pods_CustomCollections.framework */; };
+		9A2B64181D6E38A700C6D501 /* AbstractDataTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */; };
 		9A612DF01D6E347700899B09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A612DEF1D6E347700899B09 /* AppDelegate.swift */; };
 		9A612DF21D6E347700899B09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A612DF11D6E347700899B09 /* ViewController.swift */; };
 		9A612DF51D6E347700899B09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A612DF31D6E347700899B09 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		4FD7471D58F27500665D4D08 /* Pods_CustomCollections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomCollections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE876D566A7135685252E1E /* Pods-CustomCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomCollectionsTests/Pods-CustomCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A86FCADEB08186712A6E331 /* Pods_CustomCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractDataTypeProtocol.swift; path = Collections/AbstractDataTypeProtocol.swift; sourceTree = "<group>"; };
 		9A612DEC1D6E347700899B09 /* CustomCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A612DEF1D6E347700899B09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A612DF11D6E347700899B09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A2B64161D6E385600C6D501 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */,
+			);
+			name = Collections;
+			sourceTree = "<group>";
+		};
 		9A612DE31D6E347700899B09 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		9A612DEE1D6E347700899B09 /* CustomCollections */ = {
 			isa = PBXGroup;
 			children = (
+				9A2B64161D6E385600C6D501 /* Collections */,
 				9A612DEF1D6E347700899B09 /* AppDelegate.swift */,
 				9A612DF11D6E347700899B09 /* ViewController.swift */,
 				9A612DF31D6E347700899B09 /* Main.storyboard */,
@@ -330,6 +341,7 @@
 			files = (
 				9A612DF21D6E347700899B09 /* ViewController.swift in Sources */,
 				9A612DF01D6E347700899B09 /* AppDelegate.swift in Sources */,
+				9A2B64181D6E38A700C6D501 /* AbstractDataTypeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

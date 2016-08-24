@@ -15,9 +15,9 @@ protocol AbstractDataTypeProtocol {
     // says if collection have any object
     func isEmpty() -> Bool
     
-    // adds value to the end of collection
+    // adds value to the end of the collection
     func push<T>(object:T) -> Void
     
-    // remove value from the end of collection
+    // remove value from the end of the collection
     func pop() -> Void
 }

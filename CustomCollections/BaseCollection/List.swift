@@ -8,27 +8,39 @@
 
 import Foundation
 
-class Node<Type> {
-    var value: Type?
-    var next: Node?
-}
-
-class List<Type> {
+class List<Type: Equatable> {
     var first: Node<Type>?
     var last: Node<Type>?
     
     var count: UInt = 0
     
     var isEmpty: Bool{
-        return true
+        return first == nil
     }
     
     func pushBack( item: Type ){
+        let newNode = Node(data: item)
         
+        //if list was empty
+        if first == nil {
+            first = newNode
+        } else {
+            last?.next = newNode
+        }
+        
+        last = newNode
     }
     
     func pushFront( item: Type ){
+        let newNode = Node(data: item)
+        newNode.next = first
         
+        first = newNode
+        
+        // list was empty
+        if last == nil{
+            last = newNode
+        }
     }
     
     func insertItem( item: Type, beforeNode nextNode: Node<Type> ){
@@ -63,4 +75,18 @@ class List<Type> {
         
     }
     
+}
+
+class Node<Type: Equatable>: Equatable {
+    var value: Type?
+    var next: Node?
+    
+    init(data:Type){
+        value = data
+    }
+}
+
+
+func ==<Type: Equatable> (left: Node<Type>, right: Node<Type>) -> Bool {
+    return left.value == right.value
 }

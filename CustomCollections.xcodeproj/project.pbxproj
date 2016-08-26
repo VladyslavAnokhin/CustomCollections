@@ -12,6 +12,7 @@
 		9A2B64181D6E38A700C6D501 /* AbstractDataTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */; };
 		9A2B641D1D6E3E5900C6D501 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B641C1D6E3E5900C6D501 /* Vector.swift */; };
 		9A2B641F1D6E50C100C6D501 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B641E1D6E50C100C6D501 /* List.swift */; };
+		9A2B64241D6E623D00C6D501 /* ListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B64231D6E623D00C6D501 /* ListSpec.swift */; };
 		9A612DF01D6E347700899B09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A612DEF1D6E347700899B09 /* AppDelegate.swift */; };
 		9A612DF21D6E347700899B09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A612DF11D6E347700899B09 /* ViewController.swift */; };
 		9A612DF51D6E347700899B09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A612DF31D6E347700899B09 /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 		9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractDataTypeProtocol.swift; path = Collections/AbstractDataTypeProtocol.swift; sourceTree = "<group>"; };
 		9A2B641C1D6E3E5900C6D501 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		9A2B641E1D6E50C100C6D501 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = BaseCollection/List.swift; sourceTree = "<group>"; };
+		9A2B64221D6E623C00C6D501 /* CustomCollectionsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomCollectionsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A2B64231D6E623D00C6D501 /* ListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSpec.swift; sourceTree = "<group>"; };
 		9A612DEC1D6E347700899B09 /* CustomCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A612DEF1D6E347700899B09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A612DF11D6E347700899B09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				9A612E061D6E347700899B09 /* Info.plist */,
+				9A2B64231D6E623D00C6D501 /* ListSpec.swift */,
+				9A2B64221D6E623C00C6D501 /* CustomCollectionsTests-Bridging-Header.h */,
 			);
 			path = CustomCollectionsTests;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2B64241D6E623D00C6D501 /* ListSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,10 +513,13 @@
 			baseConfigurationReference = 1C7821877914A239C60AB3B5 /* Pods-CustomCollectionsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CustomCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vladyslav.anokhin.CustomCollectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustomCollectionsTests/CustomCollectionsTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomCollections.app/CustomCollections";
 			};
 			name = Debug;
@@ -520,10 +529,12 @@
 			baseConfigurationReference = 6FE876D566A7135685252E1E /* Pods-CustomCollectionsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CustomCollectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vladyslav.anokhin.CustomCollectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CustomCollectionsTests/CustomCollectionsTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomCollections.app/CustomCollections";
 			};
 			name = Release;

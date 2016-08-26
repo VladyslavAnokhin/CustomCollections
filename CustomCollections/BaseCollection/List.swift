@@ -38,7 +38,7 @@ class List<Type: Equatable> {
         first = newNode
         
         // list was empty
-        if last == nil{
+        if last == nil {
             last = newNode
         }
     }

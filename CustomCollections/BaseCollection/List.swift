@@ -12,7 +12,21 @@ class List<Type: Equatable> {
     var first: Node<Type>?
     var last: Node<Type>?
     
-    var count: UInt = 0
+    var count: Int {
+        if isEmpty {
+            return 0
+        } else if first == last{
+            return 1
+        } else {
+            var count = 0
+            var currecntNode = first
+            while currecntNode != nil {
+                count += 1
+                currecntNode = currecntNode?.next
+            }
+            return count
+        }
+    }
     
     var isEmpty: Bool{
         return first == nil
@@ -48,6 +62,17 @@ class List<Type: Equatable> {
     }
     
     func insertItem( item: Type, afterNode prevNode: Node<Type> ){
+        if isEmpty{
+            return
+        }
+        
+        if prevNode == last{
+            pushBack( item )
+        } else {
+            let newNode = Node( data: item )
+            newNode.next = prevNode.next
+            prevNode.next = newNode
+        }
         
     }
     
@@ -55,29 +80,54 @@ class List<Type: Equatable> {
         
     }
     
-    func popBack( item: Type ){
+    func popBack(){
+        if isEmpty{
+            return
+        }
+        
+        if first == last{
+            last = nil
+            first = nil
+        } else {
+            var currecntNode = first
+            while currecntNode?.next != last {
+                currecntNode = currecntNode?.next
+            }
+            
+            last = nil
+            currecntNode?.next = nil
+            last = currecntNode
+        }
+    }
+    
+    func popFront(){
+        if isEmpty{
+            return
+        }
+        
+        if first == last{
+            last = nil
+            first = nil
+        } else {
+            first = first?.next
+        }
         
     }
     
-    func popFront( item: Type ){
+    func deleteAfterNode( prevNode: Node<Type> ){
         
     }
     
-    func deletItem( item: Type, beforeNode nextNode: Node<Type> ){
+    func deleteBeforeNode( nextNode: Node<Type> ){
         
     }
     
-    func deletItem( item: Type, afterNode prevNode: Node<Type> ){
-        
+    func removeAll(){
+
     }
-    
-    func deletItem( item: Type, afterIndex index: UInt ){
-        
-    }
-    
 }
 
-class Node<Type: Equatable>: Equatable {
+class Node<Type: Equatable>:NSObject {
     var value: Type?
     var next: Node?
     
@@ -87,6 +137,6 @@ class Node<Type: Equatable>: Equatable {
 }
 
 
-func ==<Type: Equatable> (left: Node<Type>, right: Node<Type>) -> Bool {
-    return left.value == right.value
-}
+//func ==<Type: Equatable> (left: Node<Type>, right: Node<Type>) -> Bool {
+//    return left.value == right.value
+//}

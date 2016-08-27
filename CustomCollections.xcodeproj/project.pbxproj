@@ -10,7 +10,6 @@
 		341870D7FE3C154628E10B05 /* Pods_CustomCollectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A86FCADEB08186712A6E331 /* Pods_CustomCollectionsTests.framework */; };
 		7C05B9765082A71993ED44CD /* Pods_CustomCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD7471D58F27500665D4D08 /* Pods_CustomCollections.framework */; };
 		9A2B64181D6E38A700C6D501 /* AbstractDataTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */; };
-		9A2B641D1D6E3E5900C6D501 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B641C1D6E3E5900C6D501 /* Vector.swift */; };
 		9A2B641F1D6E50C100C6D501 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B641E1D6E50C100C6D501 /* List.swift */; };
 		9A2B64241D6E623D00C6D501 /* ListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2B64231D6E623D00C6D501 /* ListSpec.swift */; };
 		9A612DF01D6E347700899B09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A612DEF1D6E347700899B09 /* AppDelegate.swift */; };
@@ -38,7 +37,6 @@
 		6FE876D566A7135685252E1E /* Pods-CustomCollectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomCollectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomCollectionsTests/Pods-CustomCollectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A86FCADEB08186712A6E331 /* Pods_CustomCollectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomCollectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2B64171D6E38A700C6D501 /* AbstractDataTypeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractDataTypeProtocol.swift; path = Collections/AbstractDataTypeProtocol.swift; sourceTree = "<group>"; };
-		9A2B641C1D6E3E5900C6D501 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		9A2B641E1D6E50C100C6D501 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = BaseCollection/List.swift; sourceTree = "<group>"; };
 		9A2B64221D6E623C00C6D501 /* CustomCollectionsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomCollectionsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A2B64231D6E623D00C6D501 /* ListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSpec.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 		9A2B64191D6E3E2E00C6D501 /* BaseCollections */ = {
 			isa = PBXGroup;
 			children = (
-				9A2B641C1D6E3E5900C6D501 /* Vector.swift */,
 				9A2B641E1D6E50C100C6D501 /* List.swift */,
 			);
 			name = BaseCollections;
@@ -357,7 +354,6 @@
 			files = (
 				9A612DF21D6E347700899B09 /* ViewController.swift in Sources */,
 				9A612DF01D6E347700899B09 /* AppDelegate.swift in Sources */,
-				9A2B641D1D6E3E5900C6D501 /* Vector.swift in Sources */,
 				9A2B641F1D6E50C100C6D501 /* List.swift in Sources */,
 				9A2B64181D6E38A700C6D501 /* AbstractDataTypeProtocol.swift in Sources */,
 			);

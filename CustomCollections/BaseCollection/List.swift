@@ -126,7 +126,21 @@ class List<Type: Equatable> {
     }
     
     func deleteAfterNode( prevNode: Node<Type> ){
+        if isEmpty{
+            return
+        }
         
+        if prevNode == last{
+            return
+        }
+        
+        let diyngNode = prevNode.next
+        let afterDyingNode = diyngNode?.next
+        prevNode.next = afterDyingNode
+        
+        if diyngNode == last{
+            last = prevNode
+        }
     }
     
     func deleteBeforeNode( nextNode: Node<Type> ){

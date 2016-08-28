@@ -447,6 +447,66 @@ class ListSpec: QuickSpec {
                     
                 })//When insert value in list
                 
+                //MARK: - Delete value from list
+                describe("Delete value from list", {
+                    
+                    beforeEach({ 
+                        sut.pushBack(1)
+                        sut.pushBack(2)
+                    })
+                    
+                    describe("Delete value from list after node", {
+                        context("if delete value after last", {
+                            beforeEach({ 
+                                sut.deleteAfterNode(sut.last!)
+                            })
+                            
+                            it("count should be 2"){
+                                expect(sut.count).to(equal(2))
+                            }
+                            
+                            it("first should contain 1"){
+                                expect(sut.first?.value).to(equal(1))
+                            }
+                            
+                            it("last should contain 2"){
+                                expect(sut.last?.value).to(equal(2))
+                            }
+                        })
+                        
+                        context("if delete node after first", {
+                            beforeEach({
+                                sut.pushBack(3)
+                                sut.deleteAfterNode(sut.first!)
+                            })
+                            
+                            it("count should be 2"){
+                                expect(sut.count).to(equal(2))
+                            }
+                            
+                            it("value after first should be last "){
+                                expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                            }
+                        })
+                        
+                        context("if delete last node", {
+                            beforeEach({ 
+                                sut.pushBack(3)
+                                sut.deleteAfterNode(sut.first!.next!)
+                            })
+                            
+                            it("count should be 2"){
+                                expect(sut.count).to(equal(2))
+                            }
+                            
+                            it("value after first should be last "){
+                                expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                            }
+                        })
+                    })
+                    
+                })//Delete value from list
+                
             })
         }
     }

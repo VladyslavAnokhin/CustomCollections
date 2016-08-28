@@ -58,7 +58,22 @@ class List<Type: Equatable> {
     }
     
     func insertItem( item: Type, beforeNode nextNode: Node<Type> ){
+        if isEmpty{
+            return
+        }
         
+        if nextNode == first{
+            pushFront( item )
+        } else {
+            var current = first
+            while current?.next != nextNode && current != nil{
+                current = current?.next
+            }
+            
+            let newPrewNode = Node(data: item)
+            current?.next = newPrewNode
+            newPrewNode.next = nextNode
+        }
     }
     
     func insertItem( item: Type, afterNode prevNode: Node<Type> ){
@@ -73,10 +88,6 @@ class List<Type: Equatable> {
             newNode.next = prevNode.next
             prevNode.next = newNode
         }
-        
-    }
-    
-    func insertItem( item: Type, afterIndex index: UInt ){
         
     }
     

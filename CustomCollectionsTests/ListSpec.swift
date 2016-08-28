@@ -184,7 +184,7 @@ class ListSpec: QuickSpec {
             describe("When pop value from list", {
                 
                 describe("Pop value from empty list", {
-                    beforeEach({ 
+                    beforeEach({
                         sut.popFront()
                         sut.popBack()
                     })
@@ -292,7 +292,7 @@ class ListSpec: QuickSpec {
                         }
                     })
                     
-                    context("Pop front two value value", {
+                    context("Pop front two value", {
                         beforeEach({
                             sut.popFront()
                             sut.popFront()
@@ -316,28 +316,135 @@ class ListSpec: QuickSpec {
                 //MARK: - When insert value in list
                 describe("When insert value in list", {
                     
-                    beforeEach({ 
+                    beforeEach({
                         sut.pushFront(1)
                     })
                     
-                    context("Insert value after node", {
-                        
-                        beforeEach({
-                            sut.insertItem(2, afterNode: sut.first!)
+                    //MARK: Insert after/before nonexistent node
+                    describe("Insert after/before nonexistent node", {
+                        context("if insert value after nonexistent node", {
+                            beforeEach({ 
+                                let node = Node(data: -1)
+                                sut.insertItem(2, afterNode: node)
+                            })
+                            
+                            it("count should be 1"){
+                                expect(sut.count).to(equal(1))
+                            }
+                            
+                            it("first should be equal to last"){
+                                expect(sut.first).to(equal(sut.last))
+                            }
                         })
                         
-                        it("count should be 2"){
-                            expect(sut.count).to(equal(2))
-                        }
-                        
-                        it("after insertion last should contain 2"){
-                            expect(sut.last?.value).to(equal(2))
-                        }
-                        
-                        it("first should be 1"){
-                            expect(sut.first?.value).to(equal(1))
-                        }
+                        context("if insert value before nonexistent node", {
+                            beforeEach({
+                                let node = Node(data: -1)
+                                sut.insertItem(2, beforeNode: node)
+                            })
+                            
+                            it("count should be 1"){
+                                expect(sut.count).to(equal(1))
+                            }
+                            
+                            it("first should be equal to last"){
+                                expect(sut.first).to(equal(sut.last))
+                            }
+                        })
                     })
+                    
+                    //MARK: Insert value after node
+                    describe("Inser value after node", {
+                        context("if insert value after node in list with one node", {
+                            
+                            beforeEach({
+                                sut.insertItem(2, afterNode: sut.first!)
+                            })
+                            
+                            it("count should be 2"){
+                                expect(sut.count).to(equal(2))
+                            }
+                            
+                            it("last should contain 2"){
+                                expect(sut.last?.value).to(equal(2))
+                            }
+                            
+                            it("first should be 1"){
+                                expect(sut.first?.value).to(equal(1))
+                            }
+                        })
+                        
+                        context("if insert value after midle node in list with 3 node", {
+                            beforeEach({ 
+                                sut.pushBack(2)
+                                sut.pushBack(3)
+                                let afterNode = sut.first?.next
+                                sut.insertItem(-1, afterNode: afterNode!)
+                            })
+                            
+                            it("count should be 4"){
+                                expect(sut.count).to(equal(4))
+                            }
+                            
+                            it("third node should contain value -1"){
+                                let second = sut.first?.next
+                                let third  = second?.next
+                                expect(third?.value).to(equal(-1))
+                            }
+                            
+                            it("next node after inserted should be last"){
+                                let second = sut.first?.next
+                                let third  = second?.next
+                                expect(third?.next).to(equal(sut.last))
+                            }
+                        })
+                    })//Inser value after node
+                    
+                    //MARK: Insert value before node
+                    describe("Insert value before node", {
+                        context("if insert value before node in list with one node", {
+                            beforeEach({ 
+                                sut.insertItem(-1, beforeNode: sut.first!)
+                            })
+                            
+                            it("count should be 2"){
+                                expect(sut.count).to(equal(2))
+                            }
+                            
+                            it("last should contain 1"){
+                                expect(sut.last?.value).to(equal(1))
+                            }
+                            
+                            it("first should contain -1"){
+                                expect(sut.first?.value).to(equal(-1))
+                            }
+                        })
+                        
+                        context("if insert value before midle node in list with 3 node", {
+                            beforeEach({
+                                sut.pushBack(2)
+                                sut.pushBack(3)
+                                let beforeNode = sut.first?.next
+                                sut.insertItem(-1, beforeNode: beforeNode!)
+                            })
+                            
+                            it("count should be 4"){
+                                expect(sut.count).to(equal(4))
+                            }
+                            
+                            it("second node should contain value -1"){
+                                let second = sut.first?.next
+                                expect(second?.value).to(equal(-1))
+                            }
+                            
+                            it("next node after inserted should contain value 2"){
+                                let second = sut.first?.next
+                                let third  = second?.next
+                                expect(third?.value).to(equal(2))
+                            }
+                        })
+                    })//Insert value before node
+                    
                 })//When insert value in list
                 
             })

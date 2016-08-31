@@ -144,11 +144,32 @@ class List<Type: Equatable> {
     }
     
     func deleteBeforeNode( nextNode: Node<Type> ){
+        if isEmpty{
+            return
+        }
         
+        if nextNode == first{
+            return
+        }
+        
+        var prevNode = first
+        var currentNode = first?.next
+        
+        if currentNode == nextNode{
+            first = currentNode
+        } else {
+            while currentNode?.next != nextNode {
+                prevNode = currentNode
+                currentNode = currentNode?.next
+            }
+            
+            prevNode?.next = nextNode
+        }
     }
     
     func removeAll(){
-
+        first = nil
+        last = nil
     }
 }
 

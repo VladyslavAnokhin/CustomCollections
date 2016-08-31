@@ -9,6 +9,7 @@
 import Foundation
 import Nimble
 import Quick
+
 @testable import CustomCollections
 
 class ListSpec: QuickSpec {
@@ -323,7 +324,7 @@ class ListSpec: QuickSpec {
                     //MARK: Insert after/before nonexistent node
                     describe("Insert after/before nonexistent node", {
                         context("if insert value after nonexistent node", {
-                            beforeEach({ 
+                            beforeEach({
                                 let node = Node(data: -1)
                                 sut.insertItem(2, afterNode: node)
                             })
@@ -375,7 +376,7 @@ class ListSpec: QuickSpec {
                         })
                         
                         context("if insert value after midle node in list with 3 node", {
-                            beforeEach({ 
+                            beforeEach({
                                 sut.pushBack(2)
                                 sut.pushBack(3)
                                 let afterNode = sut.first?.next
@@ -403,7 +404,7 @@ class ListSpec: QuickSpec {
                     //MARK: Insert value before node
                     describe("Insert value before node", {
                         context("if insert value before node in list with one node", {
-                            beforeEach({ 
+                            beforeEach({
                                 sut.insertItem(-1, beforeNode: sut.first!)
                             })
                             
@@ -450,14 +451,15 @@ class ListSpec: QuickSpec {
                 //MARK: - Delete value from list
                 describe("Delete value from list", {
                     
-                    beforeEach({ 
+                    beforeEach({
                         sut.pushBack(1)
                         sut.pushBack(2)
                     })
                     
+                    //MARK: Delete after
                     describe("Delete value from list after node", {
                         context("if delete value after last", {
-                            beforeEach({ 
+                            beforeEach({
                                 sut.deleteAfterNode(sut.last!)
                             })
                             
@@ -474,38 +476,126 @@ class ListSpec: QuickSpec {
                             }
                         })
                         
-                        context("if delete node after first", {
+                        describe("Delete from list with more then two value", {
                             beforeEach({
                                 sut.pushBack(3)
-                                sut.deleteAfterNode(sut.first!)
                             })
                             
-                            it("count should be 2"){
+                            context("if delete node after first", {
+                                beforeEach({
+                                    sut.deleteAfterNode(sut.first!)
+                                })
+                                
+                                it("count should be 2"){
+                                    expect(sut.count).to(equal(2))
+                                }
+                                
+                                it("value after first should be last "){
+                                    expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                                }
+                            })
+                            
+                            context("if delete last node", {
+                                beforeEach({
+                                    sut.deleteAfterNode(sut.first!.next!)
+                                })
+                                
+                                it("count should be 2"){
+                                    expect(sut.count).to(equal(2))
+                                }
+                                
+                                it("value after first should be last "){
+                                    expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                                }
+                            })
+                        })
+                        
+                    })//Delete after
+                    
+                    //MARK: Delete before
+                    describe("Delete value from list before node", {
+                        
+                        context("if delete value before first", {
+                            beforeEach({
+                                sut.deleteBeforeNode(sut.first!)
+                            })
+                            
+                            it("coutn should be 2"){
                                 expect(sut.count).to(equal(2))
                             }
                             
-                            it("value after first should be last "){
-                                expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                            it("first should contain 1"){
+                                expect(sut.first?.value).to(equal(1))
+                            }
+                            
+                            it("last should contain 2"){
+                                expect(sut.last?.value).to(equal(2))
                             }
                         })
                         
-                        context("if delete last node", {
-                            beforeEach({ 
+                        describe("Delete from list with more then two value", {
+                            beforeEach({
                                 sut.pushBack(3)
-                                sut.deleteAfterNode(sut.first!.next!)
                             })
                             
-                            it("count should be 2"){
-                                expect(sut.count).to(equal(2))
-                            }
+                            context("if delete node after first", {
+                                beforeEach({
+                                    sut.deleteBeforeNode(sut.last!)
+                                })
+                                
+                                it("count should be 2"){
+                                    expect(sut.count).to(equal(2))
+                                }
+                                
+                                it("value after first should be last "){
+                                    expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                                }
+                            })
                             
-                            it("value after first should be last "){
-                                expect(sut.last?.value).to(equal(sut.first!.next?.value))
-                            }
+                            context("if delete first node", {
+                                beforeEach({
+                                    sut.deleteBeforeNode(sut.first!.next!)
+                                })
+                                
+                                it("count should be 2"){
+                                    expect(sut.count).to(equal(2))
+                                }
+                                
+                                it("value after first should be last "){
+                                    expect(sut.last?.value).to(equal(sut.first!.next?.value))
+                                }
+                            })
                         })
+                        
                     })
                     
                 })//Delete value from list
+                
+                //MARK: - Remove all
+                describe("Remove all", {
+                    
+                    beforeEach({ 
+                        sut.pushBack(2)
+                        sut.pushFront(1)
+                    })
+                    
+                    context("if remove all items from list", {
+                        
+                        beforeEach({ 
+                            sut.removeAll()
+                        })
+                        
+                        it("count should be 0"){
+                            expect(sut.count).to(equal(0))
+                        }
+                        
+                        it("first and last should be nil"){
+                            expect(sut.first).to(beNil())
+                            expect(sut.last).to(beNil())
+                        }
+                    })
+                    
+                })//Remove all
                 
             })
         }
